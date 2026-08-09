@@ -1,0 +1,22 @@
+* { /* Configuración global: se aplica a TODOS los elementos de la web */
+    margin: 0; /* Deciden cuánto espacio hay entre las cosas */
+    padding: 0; /* Deciden cuánto espacio hay entre las cosas */
+    box-sizing: border-box; /* Decide cómo se suma ese espacio al ancho total para que nada se descuadre */
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* ---------------------- MAIN ---------------------- */
+body {
+    background-image: url("/fondo_index.png"); /* Imagen de fondo */
+    background-size: cover;           /* Cubre toda la ventana sin deformarse */
+    background-position: center;      /* Centra la imagen */
+    background-attachment: scroll;
+    background-repeat: no-repeat;     /* No permite que la imagen se repita */
+    background-color: rgba(0, 0, 0, 0.4); 
+    background-blend-mode: lighten;
+}
+main {
+    max-width: 100%;
+    margin: 0 auto; /* Centra todo el contenido principal */
+    padding: 20px 0;
+}

@@ -1,0 +1,121 @@
+/* ------------------------- */
+/* --------- NAV ----------- */
+/* ------------------------- */
+.nav {
+    font-family: 'Montserrat', sans-serif; /* La misma fuente de todo el proyecto */;
+    background-color: rgb(200, 255, 255); /* Color del fondo */
+    position: relative;
+    width: 100%;
+    z-index: 1000;
+    display: flex; /* Activa Flexbox para organizar los elementos */
+    align-items: center; /* Centra verticalmente los elementos dentro del nav */
+    padding: 12px 40px; /* Espacio interno: arriba/abajo 15px, lados 40px */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sutil sombra para dar profundidad */
+}
+.nav.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+.nav_links {
+    position: absolute; /* Saca este bloque del flujo normal */
+    display: flex; /* Organiza los links en fila */
+    left: 50%; /* Lo mueve al centro horizontal del nav */
+    transform: translateX(-50%); /* Ajusta para que quede exactamente centrado */
+    gap: 35px;
+}
+.nav_links a {
+    color: rgb(26, 26, 26); /* Color del texto */
+    text-decoration: none; /* borra la línea del subrayado */
+    font-size: 16px; /* Tamaño del texto */
+    font-weight: 600; /* texto en negrilla */
+    transition: all 0.3s ease; /* Transición suave para todos los estados */
+}
+.nav_links a:hover {
+    color: #000; /* Al colocar el mouse cambia de color */
+    transform: translateY(-2px); /* Pequeño salto hacia arriba */
+}
+.nav_login {
+    display: flex;
+    gap: 15px;
+    text-decoration: none; /* borra la línea del subrayado */
+    font-size: 16px; /* Tamaño del texto */
+    font-weight: 700; /* texto en negrilla */
+    margin-left: auto; /* Empuja este elemento hacia la derecha del todo */
+}
+.nav_login a:hover {
+    color: black; /* Al colocar el mouse cambia de color */
+    transform: scale(1.05); /* Crece un poquito */
+}
+.boton_registro {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    background-color: rgb(122, 181, 177);
+    padding: 8px 22px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+.boton_registro:hover {
+    background-color: rgb(95, 150, 147);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.boton_login {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgb(122, 181, 177);
+    background-color: white;
+    padding: 8px 22px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    border: 1px solid rgb(122, 181, 177);
+}
+.boton_login:hover {
+    background-color: rgb(122, 181, 177);
+    color: white;
+}
+/* ---------- PERFIL ---------- */
+.perfil_dropdown {
+    position: relative;
+}
+.perfil_menu {
+    display: none;
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    flex-direction: column;
+    padding: 10px;
+    gap: 8px;
+    min-width: 160px;
+    z-index: 2000;
+}
+.perfil_dropdown:hover .perfil_menu {
+    display: flex;
+}
+/*ICONOS*/
+.nav_links a,
+.nav_login a {
+    display: flex; /* Activa Flexbox para poner icono y texto en fila */
+    align-items: center; /* Centra verticalmente el icono respecto al texto */
+    gap: 10px; /* Espacio de separación entre el icono y la palabra */
+}
+.nav_links .material-symbols-outlined {
+    font-size: 24px; /* Tamaño de los iconos */
+}
+.nav_login .material-symbols-outlined {
+    font-size: 22px; /* Tamaño del icono */
+}

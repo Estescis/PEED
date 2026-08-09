@@ -1,0 +1,120 @@
+/* El resto de tu CSS (como lo pegaste) se mantiene igual */
+.layout {
+    display: flex;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+/* MITAD IZQUIERDA (IMAGEN) */
+.layout .lado-imagen {
+    width: 50%;
+    height: 100%;
+    border-right: 2px solid white;
+}
+.layout .lado-imagen img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* MITAD DERECHA (FORMULARIO) */
+.layout .lado-formulario {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #4d4d4d;
+    position: relative;
+}
+/* BOTÓN VOLVER */
+.layout .btn-volver {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    text-decoration: none;
+    background: #007BFF;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+.layout .btn-volver:hover {
+    background: #0056b3;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.layout .contenedor {
+    width: 450px;              /* ⬅️ MÁS ANCHO */
+    max-width: 90%;            /* ⬅️ RESPONSIVO */
+    background: white;
+    padding: 30px;             /* ⬅️ MÁS ESPACIO INTERNO */
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* PASOS */
+.layout .paso {
+    display: none;
+}
+
+.layout .paso.activo {
+    display: block;
+}
+.layout .paso.activo h2 {
+    text-align: center;
+}
+/* INPUTS */
+.layout input, select {
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* ⬅️ IMPORTANTE (evita que se salgan) */
+}
+
+/* LABELS */
+.layout label {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: left;
+}
+
+/* BOTONES */
+.layout button {
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.layout button:hover {
+    background: #0056b3;
+}
+
+/* BOTONES EN FILA */
+.layout .botones {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* MENSAJE */
+.layout #mensaje {
+    text-align: center;
+    margin-top: 15px;
+    padding: 10px;
+    background: #e6f4ea;
+    color: #2e7d32;
+    border-radius: 6px;
+    font-weight: bold;
+}
+.layout #mensaje:empty {
+    display: none;
+}

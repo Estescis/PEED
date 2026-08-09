@@ -1,0 +1,118 @@
+/* ----------------------------- */
+/* --------- SUPPORT ----------- */
+/* ----------------------------- */
+
+/* 1. Usamos Flexbox para centrar todo lo que esté dentro de .support-page */
+.support-page {
+    font-family: 'Montserrat', sans-serif;
+    display: flex;          /* Activamos flexbox */
+    flex-direction: column; /* Ponemos los elementos uno debajo de otro */
+    align-items: center;    /* Esto centra todo horizontalmente */
+    width: 100%;            /* Ocupa todo el ancho */
+}
+
+/* El encabezado (init) no necesita display flex, se queda igual */
+.support-page .init {
+    text-align: center;
+    margin: 40px auto; /* Centramos el bloque */
+    max-width: 800px;  /* Opcional: limita el ancho del texto */
+}
+
+.support-page .init h1 {
+    margin-bottom: 10px;
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #007bff;
+}
+
+/* Ajustamos el contenedor para que no luche contra el centrado */
+.support-page .container {
+    max-width: 600px;     /* Ajustado para que el formulario no sea gigante */
+    width: 90%;           /* Se adapta a pantallas pequeñas */
+    margin: 40px 0;       /* Quitamos el 'auto' porque el padre ya lo centra */
+    display: block;       /* Ya no necesitamos grid si solo hay una columna */
+    padding: 20px;
+}
+
+/* 4. Estilos para los componentes internos */
+.support-page .info, 
+.support-page .formulario {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.support-page form {
+    display: flex;
+    flex-direction: column;
+}
+
+.support-page input, 
+.support-page textarea {
+    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.support-page textarea {
+    resize: none;
+    height: 120px;
+}
+
+.support-page button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.support-page button:hover {
+    background: #0056b3;
+}
+
+.support-page .mensaje {
+margin-top: 15px;
+    padding: 10px;
+    font-size: 14px;
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Estilo para el input de archivo */
+.support-page .input-group input[type="file"] {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    cursor: pointer;
+    background: #f5f7fa;
+    margin-bottom: 15px;
+}
+
+.support-page .input-group span {
+    display: block;
+    margin-top: -15px;
+    margin-bottom: 15px;
+    font-size: 13px;
+    color: #555;
+}
+
+.support-page .input-group input[type="file"]:hover {
+    border-color: #007bff;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .support-page .container {
+        grid-template-columns: 1fr;
+    }
+}

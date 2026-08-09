@@ -1,0 +1,43 @@
+/* ---------------------------- */
+/* --------- HEADER ----------- */
+/* ---------------------------- */
+.header {
+    background: rgb(75, 75, 75); /* Define el color de fondo gris oscuro */
+    height: auto; /* Permite que la altura se adapte al contenido (el logo o la imagen) */
+    display: flex; /* Activa Flexbox para que el logo y la imagen se pongan uno al lado del otro (en fila) */
+}
+/* LOGO */
+.contenedor_logo {
+    width: 35%; /* Reserva el 35% del ancho total para el logo */
+    display: flex; /* Permite usar alineación interna */
+    align-items: center; /* Centra el logo verticalmente */
+    padding-left: 50px; /* Separa el logo del borde izquierdo de la pantalla */
+}
+.header_logo {
+    filter: brightness(0) invert(1); /* Cambio el color de logo a blanco */
+    height: 120px; /* Define el tamaño del logo. */
+}
+/* IMAGEN */
+.contenedor_imagen {
+    width: 65%; /* Toma el resto del espacio del header */
+    position: relative; /* Necesario para que el degradado (::before) sepa dónde posicionarse */
+
+    display: flex; 
+    justify-content: flex-end; /* Empujan la imagen totalmente hacia el borde derecho de la página */
+}
+.header_img {
+    height: 100%; /* Se estira para ocupar toda la altura del header */
+    width: 60%; /* la imagen no ocupe todo su contenedor, dejando un 40% de espacio vacío a su izquierda */
+    object-fit: cover; /* Evita que la imagen se estire de más; la recorta manteniendo su proporción. */
+    object-position: center center; /* Centra el encuadre de la foto */
+}
+.contenedor_imagen::before {
+    content: ""; /* Obligatorio para que el elemento exista */
+    position: absolute; /* Permite colocarlo encima de la imagen */
+    left: 40%; /* El degradado debe empezar justo donde termina el vacío 40% para caer encima de la foto ya que la imagen mide 60%. */
+    top: 0; /* Alineado al borde superior del header */
+    width: 100px; /* El ancho de la mancha de degradado */
+    height: 100%; /* Cubre todo el alto del header */
+    background: linear-gradient(to right, rgb(75, 75, 75, 1), rgba(75, 75, 75, 0)); /* Crea el efecto de gris sólido a transparente de izquierda a derecha. */
+    z-index: 1; /* Asegura que el degradado esté arriba de la foto y no por debajo */
+}

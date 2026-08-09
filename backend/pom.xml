@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<!-- Versión del Modelo Maven -->
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Padre de Spring Boot: administra las versiones de las dependencias -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>4.1.0</version>
+		<relativePath/>
+	</parent>
+
+	<!-- Datos del Proyecto -->
+	<groupId>com.PEED</groupId>
+	<artifactId>backend</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>backend</name>
+	<description>Plataforma Evaluadora de Exámenes Digitales</description>
+	
+	<!-- Versión de Java instalada -->
+	<properties>
+		<java.version>21</java.version>
+	</properties>
+
+
+	<dependencies>
+		<!-- Actuator para monitoreo -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<!-- Permite crear controladores, API REST y usar Tomcat embebido -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		
+		<!-- Permite trabajar con bases de datos usando JPA/Hibernate -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<!-- Conector para PostgreSQL -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!--  Lombok reduce código repetitivo como getters, setters y constructores  -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<!--  Reinicia automáticamente la aplicación cuando haces cambios  -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		
+		<!--  Dependencia para pruebas  -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- Dependencia para seguridad y autenticación -->
+		<dependency>
+    		<groupId>org.springframework.security</groupId>
+        	<artifactId>spring-security-crypto</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!--  Plugin que permite ejecutar y empaquetar el proyecto Spring Boot  -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>			
+		</plugins>
+	</build>
+
+</project>

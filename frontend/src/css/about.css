@@ -1,0 +1,106 @@
+.about-page {
+    font-family: 'Montserrat', sans-serif;
+}
+.about-page .container_about {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+/* Títulos */
+.about-page h1 {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #007bff;
+    margin-bottom: 40px;
+}
+
+/* CARD ESTILO GENERAL */
+.about-page .card {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 60px;
+    gap: 20px;
+}
+/* Card izquierda: texto a la izquierda, imagen a la derecha */
+.about-page .card.left {
+    flex-direction: row;
+}
+/* Card derecha: texto a la derecha, imagen a la izquierda */
+.about-page .card.right {
+    flex-direction: row-reverse;
+}
+/* Card contenido (fondo blanco solo para texto) */
+.about-page .card-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    width: 50%;
+}
+/* Imagen al lado del cuadro, fuera del fondo blanco */
+.about-page .card-image {
+    width: 45%;
+}
+.about-page .card-image img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+}
+/* H2 dentro de card */
+.about-page .card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+/* Párrafos dentro de card */
+.about-page .card p {
+    font-size: 1rem;
+}
+/* Lista con íconos */
+.about-page .card ul {
+    list-style: none;
+    padding: 0;
+}
+.about-page .card ul li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.about-page .card ul li i {
+    color: #007bff;
+}
+/* Botón */
+.about-page .btn-unete {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #007bff;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+.about-page .btn-unete:hover {
+    background-color: #02468f;
+}
+/* Responsive: móviles */
+@media screen and (max-width: 900px) {
+    .about-page .card {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .about-page .card.left, .card.right {
+        flex-direction: column;
+    }
+    .about-page .card-content, .card-image {
+        width: 100%;
+    }
+}

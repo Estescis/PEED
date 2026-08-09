@@ -1,0 +1,478 @@
+/* --- ESTRUCTURA BASE --- */
+.dashboard-container { display: flex; height: 100vh; overflow: hidden; background-color: white; }
+
+/* --- SIDEBAR --- */
+.sidebar { width: 260px; background: #f8f9fa; display: flex; transition: 0.3s; position: relative; border-right: 1px solid #dee2e6; }
+.sidebar.collapsed { width: 70px; }
+.sidebar-content { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+.sidebar-handle { width: 8px; background: #2D50A2; cursor: pointer; height: 100%; flex-shrink: 0; }
+
+.logo-container { padding: 25px; display: flex; justify-content: center; }
+.brand-symbol { height: 50px; width: 50px; object-fit: contain; }
+
+/* Menú y Submenú - Usamos flexbox para alinear todo */
+.menu, .submenu { list-style: none; padding: 0; width: 100%; }
+.menu-item, .logout, .submenu-item { 
+    padding: 15px 20px; 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    cursor: pointer;
+    transition: 0.2s;
+    height: 50px; /* Altura fija para consistencia */
+}
+
+/* Iconos */
+.menu-item i, .logout i, .submenu-item i { 
+    width: 20px; 
+    display: flex; 
+    justify-content: center; 
+    font-size: 1.2rem;
+}
+
+/* APLICACIÓN DE SANGRÍA INTELIGENTE */
+.sidebar .submenu .submenu-item { 
+    padding-left: 50px; /* Espacio justo para alinear con el texto del padre */
+    color: #555; 
+    font-size: 0.95em; 
+}
+
+/* --- LOGICA DE COLAPSO LIMPIA --- */
+.sidebar.collapsed .menu-item, 
+.sidebar.collapsed .logout, 
+.sidebar.collapsed .submenu-item { 
+    padding-left: 0; 
+    justify-content: center; /* Centra el icono */
+}
+
+/* Ocultar elementos */
+.sidebar.collapsed .menu-text, .sidebar.collapsed .bx-chevron-down { display: none; }
+
+.menu-item:hover, .logout:hover, .submenu-item:hover { background: #e9ecef; }
+
+.bx-chevron-down.rotate {
+    transform: rotate(180deg);
+    transition: transform 0.2s;
+}
+
+/* --- MAIN CONTENT --- */
+.main-content { flex: 1; display: flex; flex-direction: column; background-color: #f4f7f6; margin: 0; padding: 0; }
+
+.top-navbar { 
+    height: 70px; 
+    background: white;
+    border-bottom: 1px solid #eef0f2; 
+    display: flex; 
+    align-items: center; 
+    justify-content: flex-end; 
+    padding: 0 30px; 
+}
+
+.content-area { padding: 40px; overflow-y: auto; flex: 1; }
+
+/* Tarjetas Pro */
+.dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+.stats-card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #eef0f2; transition: transform 0.2s; }
+.stats-card:hover { transform: translateY(-5px); }
+.stat-number { font-size: 28px; font-weight: bold; color: #2D50A2; margin-top: 10px; }
+
+/* --- PERFIL --- */
+.profile-container { 
+    width: 100%;
+    max-width: none;
+    background: white; 
+    padding: 35px; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+    border: 1px solid #eef0f2;
+    box-sizing: border-box;
+}
+.profile-container h2 {
+    color: #2D50A2;
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+}
+
+.profile-photo-section {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 28px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #eef0f2;
+}
+
+.profile-photo-preview {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 3px solid #2D50A2;
+    background: #f4f7f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.profile-photo-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-photo-preview i {
+    font-size: 3rem;
+    color: #adb5bd;
+}
+
+.profile-photo-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.profile-photo-title {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #333;
+    margin: 0;
+}
+
+.profile-photo-hint {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin: 0 0 8px;
+}
+
+.profile-photo-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.photo-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    border-radius: 6px;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.photo-btn-upload {
+    background: #2D50A2;
+    color: white;
+}
+
+.photo-btn-upload:hover {
+    background: #1e3a7a;
+}
+
+.photo-btn-remove {
+    background: #fff;
+    color: #dc3545;
+    border: 1px solid #dc3545;
+}
+
+.photo-btn-remove:hover {
+    background: #fff5f5;
+}
+
+.profile-form { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+    align-items: start;
+}
+.form-group { 
+    display: grid;
+    grid-template-rows: minmax(2.75rem, auto) 45px;
+    gap: 6px;
+    min-width: 0;
+}
+.form-group label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #333;
+    line-height: 1.3;
+    display: flex;
+    align-items: flex-end;
+}
+.profile-form input, 
+.profile-form select { 
+    padding: 0 14px; 
+    border: 1px solid #ccc; 
+    border-radius: 6px; 
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+    background-color: #fff;
+    width: 100%;
+    box-sizing: border-box;
+    height: 45px;
+    margin: 0;
+    line-height: 45px;
+}
+.profile-form select {
+    appearance: auto;
+    cursor: pointer;
+}
+.profile-form input.input-readonly {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+.profile-form input:focus, 
+.profile-form select:focus {
+    border-color: #2D50A2;
+}
+
+.profile-section-title {
+    grid-column: 1 / -1;
+    margin-top: 20px;
+    color: #2D50A2;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 10px;
+}
+
+.profile-form-actions {
+    grid-column: 1 / -1;
+    margin-top: 10px;
+}
+.save-btn { 
+    padding: 14px; 
+    background: #2D50A2; 
+    color: white; 
+    border: none; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background 0.2s;
+    width: 100%;
+    margin-top: 0;
+}
+.save-btn:hover { 
+    background: #1e3a7a; 
+}
+/* Usuario */
+.user-profile-nav { display: flex; align-items: center; gap: 15px; font-weight: 600; }
+.avatar { width: 35px; height: 35px; background: #2D50A2; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; }
+
+
+/* ========================================
+    CONTENEDOR PRINCIPAL (CUESTIONBANK.JSX)
+======================================== */
+.question-bank-container{
+    padding:30px;
+}
+
+/* ===================================
+    ENCABEZADO
+=================================== */
+.page-header{
+    margin-bottom:25px;
+}
+.page-header h2{
+    color:#2D50A2;
+    margin-bottom:8px;
+}
+.page-header p{
+    color:#666;
+    font-size:15px;
+}
+/* ===================================
+    TARJETA DEL FORMULARIO
+=================================== */
+.question-form-card{
+    background:#fff;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+    margin-bottom:30px;
+}
+
+/* ===================================
+    CAMPOS DEL FORMULARIO
+=================================== */
+.form-group{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:20px;
+}
+.form-group label{
+    font-weight:600;
+    margin-bottom:8px;
+    color:#444;
+}
+.form-group textarea,
+.form-group select{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+    outline:none;
+    transition:.2s;
+}
+.form-group textarea{
+    min-height:110px;
+    resize:vertical;
+}
+.form-group textarea:focus,
+.form-group select:focus{
+    border-color:#2D50A2;
+}
+
+/* ===================================
+    OPCIONES
+=================================== */
+.options-container,
+.true-false-container,
+.answer-container{
+    margin-top:20px;
+}
+.option-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:10px;
+}
+.option-item input[type="text"]{
+    flex:1;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+/* ===================================
+    BOTÓN AGREGAR OPCIÓN
+=================================== */
+.btn-add-option{
+    margin-top:15px;
+    background:#2D50A2;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.2s;
+}
+.btn-add-option:hover{
+    background:#1d3d88;
+}
+
+/* ===================================
+    BOTÓN GUARDAR
+=================================== */
+.btn-save-question{
+    margin-top:25px;
+    background:#198754;
+    color:white;
+    border:none;
+    padding:12px 24px;
+    border-radius:8px;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.2s;
+}
+.btn-save-question:hover{
+    background:#157347;
+}
+
+/* ===================================
+    LISTA DE PREGUNTAS
+=================================== */
+.question-list{
+    background:#fff;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+/* ============================
+    LISTA QUESTIONS BANK 
+============================ */
+.question-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+.question-table th{
+    background:#2D50A2;
+    color:white;
+    padding:12px;
+    text-align:left;
+}
+.question-table td{
+    padding:10px;
+    border-bottom:1px solid #ddd;
+}
+.question-table tr:hover{
+    background:#f5f5f5;
+}
+.question-table button{
+    padding:6px 12px;
+    cursor:pointer;
+}
+
+/* ============================
+    Estado de preguntas
+============================ */
+.status{
+    display:inline-block;
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+    text-align:center;
+}
+.status.active{
+    background:#d4edda;
+    color:#155724;
+}
+.status.inactive{
+    background:#f8d7da;
+    color:#721c24;
+}
+
+/* ===================================
+    BOTONES EDITAR/ELIMINAR PREGUNTAS
+=================================== */
+.action-buttons{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+}
+.btn-icon{
+    width:38px;
+    height:38px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
+    color:white;
+    transition:.25s;
+}
+.btn-icon.edit{
+    background:#0d6efd;
+}
+.btn-icon.edit:hover{
+    background:#0b5ed7;
+    transform:scale(1.08);
+}
+.btn-icon.delete{
+    background:#dc3545;
+}
+.btn-icon.delete:hover{
+    background:#bb2d3b;
+    transform:scale(1.08);
+}

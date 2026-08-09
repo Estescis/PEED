@@ -1,0 +1,136 @@
+/* ---------------------------- */
+/* --------- FOOTER ----------- */
+/* ---------------------------- */
+
+/* 1. CONTENEDOR PRINCIPAL
+    Define el fondo, el color de texto base y la línea superior celeste. */
+.footer_peed {
+    background-color: #1a1a1a;    /* Gris oscuro profundo */
+    color: #ffffff;               /* Texto blanco por defecto */
+    padding: 60px 0 20px 0;       /* Espaciado interno */
+    border-top: 4px solid #a0f0f0; /* Línea de identidad PEED */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 50px;             /* Separación del resto de la página */
+}
+/* 2. ESTRUCTURA DE COLUMNAS (Flexbox)
+    Controla cómo se reparten las 3 secciones principales. */
+.contenedor_footer {
+    display: flex;
+    justify-content: space-between; /* Espacio máximo entre columnas */
+    align-items: flex-start;        /* Alinea el contenido al tope */
+    max-width: 1200px;              /* Ancho máximo contenido */
+    margin: 0 auto;                 /* Centrado horizontal */
+    padding: 0 20px;
+    flex-wrap: wrap;                /* Se apila en móviles */
+}
+/* 3. COLUMNA DE INFORMACIÓN (Logo + Texto)
+    Aquí es donde ocurre la magia de poner el logo a la izquierda. */
+.info_footer {
+    flex: 2;                       /* Ocupa más espacio que las otras columnas */
+    display: flex;                 /* Activa alineación horizontal interna */
+    align-items: center;           /* Centra el logo con el texto verticalmente */
+    gap: 20px;                     /* Distancia entre logo y bloque de texto */
+    min-width: 300px;
+    margin-bottom: 30px;
+}
+/* Contenedor interno para que el texto siga uno debajo de otro */
+.texto_logo_footer {
+    display: flex;
+    flex-direction: column;        /* Apila H2, P y Slogan verticalmente */
+}
+/* 4. ESTILO DEL LOGO
+    Controla el tamaño y efectos de la imagen. */
+.logo_peed_footer {
+    max-width: 90px;               /* Tamaño optimizado para estar al lado del texto */
+    height: auto;
+    filter: brightness(0) invert(1); /* Vuelve el logo blanco si es oscuro */
+    transition: transform 0.3s ease;
+    flex-shrink: 0;                /* Evita que el logo se aplaste */
+}
+.logo_peed_footer:hover {
+    transform: scale(1.1);         /* Efecto de aumento al pasar el mouse */
+}
+/* 5. TÍTULOS Y TEXTO DE INFO */
+.logo_footer {
+    font-size: 26px;
+    margin: 0;                     /* Elimina margen para alinear con el logo */
+    color: #ffffff;
+}
+.info_footer p {
+    font-size: 14px;
+    color: #cccccc;
+    margin: 5px 0;
+    line-height: 1.4;
+}
+.info_footer .slogan {
+    color: #a0f0f0;                /* Celeste PEED */
+    font-weight: bold;
+    font-size: 12px;
+    font-style: italic;            /* Cursiva elegante */
+}
+/* 6. COLUMNAS DE ENLACES Y CONTACTO
+    Estilo para los títulos de sección "Navegación" y "Contacto". */
+.footer_links, .footer_contacto {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 30px;
+}
+.footer_links h4, .footer_contacto h4 {
+    color: #a0f0f0;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+/* Efecto Hover: Cuando el usuario pone el mouse encima */
+.footer_links ul li a:hover {
+    color: #a0f0f0;                /* Cambia a cian */
+    padding-left: 8px;             /* Se desplaza ligeramente a la derecha */
+}
+/* 7. LISTAS Y ENLACES
+    Controla el menú del footer. */
+.footer_links ul {
+    list-style: none;
+    padding: 0;
+}
+.footer_links ul li {
+    margin-bottom: 10px;
+}
+.footer_links ul li a {
+    color: #bbbbbb;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.footer_links ul li a:hover {
+    color: #a0f0f0;
+    padding-left: 5px;             /* Efecto de desplazamiento */
+}
+/* 8. ICONOS DE REDES SOCIALES
+    Estilo para los iconos de Font Awesome. */
+.iconos_redes {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+.icono_social {
+    color: #a0f0f0;
+    font-size: 18px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.icono_social:hover {
+    color: #ffffff;
+    transform: translateY(-3px);   /* Salto hacia arriba */
+    text-shadow: 0 0 8px rgba(160, 240, 240, 0.6);
+}
+/* 9. BARRA DE COPYRIGHT
+   La franja final al pie de la página. */
+.footer_copy {
+    text-align: center;
+    margin-top: 40px;
+    border-top: 1px solid #333;    /* Línea divisoria sutil */
+    padding: 20px;
+    font-size: 12px;
+    color: #666;
+    width: 100%;
+}

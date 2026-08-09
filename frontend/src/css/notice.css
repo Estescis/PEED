@@ -1,0 +1,74 @@
+/* ---------------------------- */
+/* --------- NOTICE ----------- */
+/* ---------------------------- */
+.contenedor_noticias {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Distribuye las tarjetas a los extremos */
+    align-items: stretch;
+    gap: 30px;               /* Aumentamos un poco el espacio entre ellas */
+    padding: 0;              /* Quitamos el padding lateral para que toque la misma línea */
+    width: 100%;             
+    max-width: 1600px;       /* IGUAL AL SLIDER */
+    margin: 40px auto;       /* El 'auto' las centra perfectamente */
+}
+.link_tarjeta {
+    flex: 1;
+    display: block; /* NO flex */
+    text-decoration: none;
+    color: inherit;
+}
+/* LA TARJETA INDIVIDUAL */
+.tarjeta {
+    flex: 1 1 0px;             /* Obliga a las tres a repartirse el 100% del ancho exacto */
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;          /* Un mínimo razonable */
+    transition: all 0.3s ease; /* Esta línea hace que el movimiento sea suave */
+}
+/* Efecto al pasar el mouse */
+.tarjeta:hover {
+    transform: translateY(-10px); /* Se eleva un poquito */
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgb(0,0,0,0.2); /* Sombra más profunda al "elevarse" */
+}
+/* ÁREA DE LA IMAGEN DENTRO DE LA TARJETA */
+.imagen_tarjeta {
+    width: 100%;
+    height: 150px;            /* Altura fija para la parte de la imagen */
+    background-color: #7ab5b1; /* Color de respaldo similar al de tu diseño */
+    overflow: hidden;
+}
+.imagen_tarjeta img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;        /* Ajusta la ilustración sin deformarla */
+}
+/* TEXTO DE LA TARJETA */
+.contenido_tarjeta {
+    font-family: 'Montserrat', sans-serif;
+    padding: 20px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.contenido_tarjeta h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #000;              /* Título en negro como en la imagen */
+    font-weight: bold;
+    flex-shrink: 0;
+}
+.contenido_tarjeta p {
+    font-size: 0.95rem;
+    color: #444;              /* Texto gris oscuro para mejor lectura */
+    line-height: 1.5;         /* Espaciado entre líneas */
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
