@@ -1,5 +1,6 @@
 package com.PEED.backend.service;
 
+import com.PEED.backend.dto.ExamCandidateDTO;
 import com.PEED.backend.model.Exam;
 
 import java.util.List;
@@ -24,4 +25,6 @@ public interface ExamService {
     // Eliminar examen
     boolean deleteExam(Long idExam);
 
+    // Consultar examen para presentar
+    ExamCandidateDTO getExamForCandidate(Long idExam);
 }

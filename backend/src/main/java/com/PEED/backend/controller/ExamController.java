@@ -3,6 +3,8 @@ package com.PEED.backend.controller;
 import com.PEED.backend.model.Exam;
 import com.PEED.backend.service.ExamService;
 
+import com.PEED.backend.dto.ExamCandidateDTO;
+
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
@@ -89,6 +91,21 @@ public class ExamController {
             return ResponseEntity.notFound().build();
         }
 
+        return ResponseEntity.ok(exam);
+    }
+
+    // ==========================
+    // CONSULTAR EXAMEN PARA PRESENTAR
+    // ==========================
+    @GetMapping("/{id}/take")
+    public ResponseEntity<ExamCandidateDTO> getExamForCandidate(
+            @PathVariable Long id
+    ) {
+        ExamCandidateDTO exam =
+                examService.getExamForCandidate(id);
+        if (exam == null) {
+            return ResponseEntity.notFound().build();
+        }
         return ResponseEntity.ok(exam);
     }
 

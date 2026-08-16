@@ -52,6 +52,16 @@ public class UserController {
     }
 
     // =========================
+    // READ - Mostrar Candidatos
+    // =========================
+    // URL: GET /user/candidates
+    @GetMapping("/candidates")
+    public List<User> getCandidates() {
+
+        return userService.getCandidates();
+    }
+
+    // =========================
     // UPDATE - Modificar User
     // =========================
     // URL: PUT /user/modify/{id}

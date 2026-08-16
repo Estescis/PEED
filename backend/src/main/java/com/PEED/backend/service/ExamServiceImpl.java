@@ -3,6 +3,10 @@ package com.PEED.backend.service;
 import com.PEED.backend.model.Exam;
 import com.PEED.backend.repository.ExamRepository;
 
+import com.PEED.backend.dto.ExamCandidateDTO;
+import com.PEED.backend.dto.QuestionCandidateDTO;
+import com.PEED.backend.dto.QuestionOptionCandidateDTO;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -78,10 +82,73 @@ public class ExamServiceImpl implements ExamService {
     // ==========================
     @Override
     public Exam getById(Long idExam) {
-
         Optional<Exam> exam = examRepository.findById(idExam);
-
         return exam.orElse(null);
+    }
+
+    // ==========================
+    // CONSULTAR EXAMEN PARA PRESENTAR
+    // ==========================
+    @Override
+    public ExamCandidateDTO getExamForCandidate(Long idExam) {
+        Optional<Exam> optionalExam =
+                examRepository.findById(idExam);
+        if (optionalExam.isEmpty()) {
+            return null;
+        }
+        Exam exam = optionalExam.get();
+
+        // ==========================
+        // CREAR DTO DEL EXAMEN
+        // ==========================
+        ExamCandidateDTO examDTO = new ExamCandidateDTO();
+        examDTO.setIdExam(exam.getIdExam());
+        examDTO.setName(exam.getName());
+        examDTO.setDescription(exam.getDescription());
+        examDTO.setDuration(exam.getDuration());
+
+        // ==========================
+        // CONVERTIR PREGUNTAS
+        // ==========================
+        List<QuestionCandidateDTO> questionDTOs =
+                exam.getQuestions()
+                        .stream()
+                        .map(question -> {
+                            QuestionCandidateDTO questionDTO =
+                                    new QuestionCandidateDTO();
+                            questionDTO.setIdQuestion(
+                                    question.getIdQuestion()
+                            );
+                            questionDTO.setStatement(
+                                    question.getStatement()
+                            );
+                            questionDTO.setQuestionType(
+                                    question.getQuestionType().name()
+                            );
+                            // ==========================
+                            // CONVERTIR OPCIONES
+                            // ==========================
+                            List<QuestionOptionCandidateDTO> optionDTOs =
+                                    question.getOptions()
+                                            .stream()
+                                            .map(option -> {
+                                                QuestionOptionCandidateDTO optionDTO =
+                                                        new QuestionOptionCandidateDTO();
+                                                optionDTO.setIdOption(
+                                                        option.getIdOption()
+                                                );
+                                                optionDTO.setOptionText(
+                                                        option.getOptionText()
+                                                );
+                                                return optionDTO;
+                                            })
+                                            .toList();
+                            questionDTO.setOptions(optionDTOs);
+                            return questionDTO;
+                        })
+                        .toList();
+        examDTO.setQuestions(questionDTOs);
+        return examDTO;
     }
 
     // ==========================

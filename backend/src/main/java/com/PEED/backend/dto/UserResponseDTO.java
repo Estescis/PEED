@@ -6,7 +6,8 @@ import lombok.Data;
 @Data
 
 public class UserResponseDTO {
-
+    
+    private String message;
     private Long iduser;
     private String names;
     private String lastnames;
@@ -17,6 +18,7 @@ public class UserResponseDTO {
     // Constructor que recibe un User
     public UserResponseDTO(User user) {
 
+        this.message = "Inicio de sesión exitoso";
         this.iduser = user.getIduser();
         this.names = user.getNames();
         this.lastnames = user.getLastnames();

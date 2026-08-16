@@ -280,6 +280,7 @@
 .page-header h2{
     color:#2D50A2;
     margin-bottom:8px;
+    font-size: 28px;
 }
 .page-header p{
     color:#666;
@@ -475,4 +476,452 @@
 .btn-icon.delete:hover{
     background:#bb2d3b;
     transform:scale(1.08);
+}
+
+/* ===================================
+    BANCO DE EXÁMENES
+=================================== */
+.exam-bank-container {
+    width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+/* ===================================
+    ENCABEZADO
+=================================== */
+.exam-bank-container .page-header {
+    margin-bottom: 25px;
+}
+.exam-bank-container .page-header h2 {
+    margin: 0 0 8px 0;
+    color: #2D50A2;
+    font-size: 28px;
+}
+.exam-bank-container .page-header p {
+    margin: 0;
+    color: #666;
+    font-size: 15px;
+}
+
+/* ===================================
+    FORMULARIO DEL EXAMEN
+=================================== */
+.exam-form-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e5e5;
+    margin-bottom: 30px;
+}
+
+/* ===================================
+    GRUPOS DEL FORMULARIO
+=================================== */
+.exam-form-card .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.exam-form-card .form-group label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+
+/* ===================================
+    INPUTS Y TEXTAREA
+=================================== */
+.exam-form-card input[type="text"],
+.exam-form-card input[type="number"],
+.exam-form-card textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    box-sizing: border-box;
+    outline: none;
+    transition: 0.2s;
+}
+.exam-form-card textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+.exam-form-card input[type="text"]:focus,
+.exam-form-card input[type="number"]:focus,
+.exam-form-card textarea:focus {
+    border-color: #2D50A2;
+    box-shadow: 0 0 0 3px rgba(45, 80, 162, 0.12);
+}
+
+/* ===================================
+    SELECTOR DE PREGUNTAS
+=================================== */
+.question-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #f8f9fa;
+}
+
+/* ===================================
+    PREGUNTAS DISPONIBLES
+=================================== */
+.question-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: #ffffff;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.question-checkbox:hover {
+    border-color: #2D50A2;
+    background: #f5f8ff;
+}
+.question-checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #2D50A2;
+}
+.question-checkbox span {
+    color: #333;
+    font-size: 14px;
+    line-height: 1.4;
+}
+.question-selector p {
+    margin: 0;
+    padding: 15px;
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+}
+
+/* ===================================
+    ASIGNACIÓN DE EXÁMENES
+=================================== */
+.assigned-exam-container {
+    width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+/* ===================================
+    FORMULARIO DE ASIGNACIÓN
+=================================== */
+.assigned-exam-form-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e5e5;
+    margin-bottom: 30px;
+}
+
+/* ===================================
+    CAMPOS DEL FORMULARIO
+=================================== */
+.assigned-exam-form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.assigned-exam-form-group label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+.assigned-exam-form-group select,
+.assigned-exam-form-group input {
+    width: 100%;
+    height: 45px;
+    padding: 0 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    background: #fff;
+    box-sizing: border-box;
+    outline: none;
+    transition: 0.2s;
+}
+.assigned-exam-form-group select {
+    cursor: pointer;
+}
+.assigned-exam-form-group select:focus,
+.assigned-exam-form-group input:focus {
+    border-color: #2D50A2;
+    box-shadow: 0 0 0 3px rgba(45, 80, 162, 0.12);
+}
+
+/* ===================================
+    BOTÓN ASIGNAR
+=================================== */
+.btn-assign-exam {
+    margin-top: 5px;
+    background: #198754;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.btn-assign-exam:hover {
+    background: #157347;
+}
+
+/* ===================================
+    LISTA DE ASIGNACIONES
+=================================== */
+.assignments-list {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e5e5;
+}
+.assignments-list h3 {
+    margin: 0 0 20px 0;
+    color: #2D50A2;
+    font-size: 22px;
+}
+
+/* ===================================
+    TARJETAS DE ASIGNACIÓN
+=================================== */
+.assignment-card {
+    background: #f8f9fa;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 15px;
+    transition: 0.2s;
+}
+.assignment-card:last-child {
+    margin-bottom: 0;
+}
+.assignment-card:hover {
+    border-color: #2D50A2;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+}
+.assignment-card p {
+    margin: 8px 0;
+    color: #444;
+    font-size: 14px;
+}
+.assignment-card strong {
+    color: #222;
+}
+
+/* ===================================
+    ACCIONES DE ASIGNACIÓN
+=================================== */
+.assignment-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #e1e1e1;
+}
+
+.btn-cancel-assignment {
+    margin-top: 10px;
+    margin-left: 10px;
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.btn-cancel-assignment:hover {
+    background: #5c636a;
+}
+
+/* ===================================
+    ACCIONES DE ASIGNACIONES
+=================================== */
+.assignment-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eef0f2;
+}
+.assignment-actions .btn-icon {
+    flex-shrink: 0;
+}
+.assignment-actions .btn-status {
+    margin-left: 5px;
+}
+/* BOTÓN DE ESTADO */
+.btn-status {
+    border: none;
+    padding: 9px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.btn-status.deactivate {
+    background: #ffc107;
+    color: #212529;
+}
+.btn-status.deactivate:hover {
+    background: #e0a800;
+}
+.btn-status.activate {
+    background: #198754;
+    color: white;
+}
+.btn-status.activate:hover {
+    background: #157347;
+}
+
+/* ===================================
+BOTÓN INICIAR EXAMEN
+=================================== */
+.btn-start-exam {
+    margin-top: 15px;
+    padding: 11px 20px;
+    background: #2D50A2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.btn-start-exam:hover {
+    background: #1e3a7a;
+}
+/* ===================================
+    PRESENTAR EXAMEN
+=================================== */
+.take-exam-container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 30px;
+    box-sizing: border-box;
+}
+/* ===================================
+    ENCABEZADO DEL EXAMEN
+=================================== */
+.take-exam-container .page-header {
+    background: #ffffff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.take-exam-container .page-header h2 {
+    margin: 0 0 10px;
+    font-size: 28px;
+}
+.take-exam-container .page-header p {
+    margin: 6px 0;
+}
+/* ===================================
+    LISTA DE PREGUNTAS
+=================================== */
+.take-exam-questions {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+/* ===================================
+    TARJETA DE PREGUNTA
+=================================== */
+.take-exam-question {
+    background: #ffffff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.take-exam-question h3 {
+    margin: 0 0 20px;
+    font-size: 17px;
+    line-height: 1.5;
+}
+/* ===================================
+    OPCIONES
+=================================== */
+.take-exam-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.take-exam-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    border: 1px solid #e1e5ea;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.take-exam-option:hover {
+    background: #f5f7fa;
+}
+.take-exam-option input {
+    cursor: pointer;
+}
+/* ===================================
+    PREGUNTA CERRADA
+=================================== */
+.take-exam-answer {
+    width: 100%;
+    min-height: 120px;
+    padding: 12px;
+    border: 1px solid #d9dee3;
+    border-radius: 8px;
+    resize: vertical;
+    font-family: inherit;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+/* ===================================
+    BOTÓN FINALIZAR
+=================================== */
+.btn-submit-exam {
+    display: block;
+    margin: 30px auto 10px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    background: #2D50A2;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.btn-submit-exam:hover {
+    background: #243f82;
 }

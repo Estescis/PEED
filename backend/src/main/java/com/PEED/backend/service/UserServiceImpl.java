@@ -2,13 +2,18 @@ package com.PEED.backend.service;
 
 import com.PEED.backend.model.User;
 import com.PEED.backend.repository.UserRepository;
-
-import java.util.Optional;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.stereotype.Service;
-import java.util.List;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import com.PEED.backend.model.enums.UserType;
 import com.PEED.backend.dto.UserResponseDTO;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.stereotype.Service;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 
 //Indica que esta clase es un servicio de Spring
 @Service
@@ -45,7 +50,18 @@ public class UserServiceImpl implements UserService {
     public List<User> getAll() {
         return userRepository.findAll();
     }
-    
+
+    // =========================
+    // CONSULTAR CANDIDATOS
+    // =========================
+    @Override
+    public List<User> getCandidates() {
+
+        return userRepository.findByUserType(
+            UserType.Candidato
+        );
+    }
+        
     // UPDATE: Modifica un User existente
     @Override
     public User modifyUser(User user) {
@@ -112,8 +128,10 @@ public class UserServiceImpl implements UserService {
                 return new UserResponseDTO(usuario);
             }
         }
-
-    // Si no existe o la contraseña no coincide
-    return null;
+        // Si el usuario no existe o la contraseña no coincide:
+        throw new ResponseStatusException(
+            HttpStatus.UNAUTHORIZED, 
+            "Identificación o contraseña incorrectas"
+        );
     }
 }    

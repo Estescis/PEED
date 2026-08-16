@@ -14,6 +14,7 @@ import Results from "../admin/Results";
 // Importación de componentes para candidatos
 import MyExams from "../candidate/MyExams";
 import History from "../candidate/History";
+import TakeExam from "../candidate/TakeExam";
 
 import '../../css/dashboard.css';
 
@@ -60,7 +61,9 @@ const Dashboard = () => {
             // CANDIDATO
             // ==========================
             case "myexams":
-                return <MyExams />;
+                return <MyExams setActiveView={setActiveView} />;
+            case "takeexam":
+                return <TakeExam />;
             case "history":
                 return <History />;
 

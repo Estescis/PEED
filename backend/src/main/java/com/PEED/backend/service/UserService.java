@@ -15,6 +15,9 @@ public interface UserService {
     
     // Método para consultar todos los Users
     List<User> getAll();
+
+    // Método para consultar todos los candidatos
+    List<User> getCandidates();
     
     // Método para modificar un User existente
     User modifyUser(User user);
